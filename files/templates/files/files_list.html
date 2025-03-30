@@ -3,43 +3,98 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Skystore</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/design.css">
 </head>
 <body>
-{% include 'files/header.html' %}
-
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Skystore</h1>
-    <p class="lead">Skystore - это отличный вариант хранения ваших плагинов и примеров кода, который вы бы хотели
-        продать</p>
-    <a  class="p-2 btn btn-outline-primary" href="{% url 'files:files_create' %}">Загрузить файл</a>
+<div class="video-bg">
+<!-- вот сюда пихать задний фон в video-->
+ <video width="1920" height="1080" autoplay loop muted>
+<!-- <video width="1024" height="768" autoplay loop muted>-->
+<!--  <source src="/static/aura" type="video/mp4">-->
+  <source src="/static/aura/aura.mp4" type="video/mp4">
+<!--  <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4">-->
+Your browser does not support the video tag.
+</video>
 </div>
+<div class="dark-light">
+    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+   </div>
 
-<div class="container">
-    <div class="row text-center">
-        {% for files in object_list %}
-        <div class="col-3">
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">{{files.file_name}}</h4>
-                </div>
-                <div class="card-body">
 
-                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                        <li>- {{files.description |truncatechars:100}}</li>
-                    </ul>
+<div  class="app">
+ <div class="header">
+<!--  <div class="menu-circle"></div>-->
+<!--  <div class="header-menu">-->
+<!--   <a class="menu-link is-active" href="#">Apps</a>-->
+<!--   <a class="menu-link notify" href="#">Your work</a>-->
+<!--   <a class="menu-link" href="#">Discover</a>-->
+<!--   <a class="menu-link notify" href="#">Market</a>-->
+<!--  </div>-->
+  <div class="search-bar">
+   <input type="text" placeholder="Search">
+  </div>
+  <div class="header-profile">
+   <div class="notification">
+    <span class="notification-number">3</span>
+    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+     <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
+    </svg>
+   </div>
+   <svg viewBox="0 0 512 512" fill="currentColor">
+    <path d="M448.773 235.551A135.893 135.893 0 00451 211c0-74.443-60.557-135-135-135-47.52 0-91.567 25.313-115.766 65.537-32.666-10.59-66.182-6.049-93.794 12.979-27.612 19.013-44.092 49.116-45.425 82.031C24.716 253.788 0 290.497 0 331c0 7.031 1.703 13.887 3.006 20.537l.015.015C12.719 400.492 56.034 436 106 436h300c57.891 0 106-47.109 106-105 0-40.942-25.053-77.798-63.227-95.449z" />
+   </svg>
+   <img class="profile-img" src="#" alt="">
+  </div>
+ </div>
+ <div class="wrapper">
+{% include 'files/left_panel.html' %}
+  <div class="main-container">
+   <div class="main-header">
+    <a class="menu-link-main" href="#">All Files</a>
+    <div class="header-menu">
+<!--     <a class="main-header-link is-active" href="#">Desktop</a>-->
+<!--     <a class="main-header-link" href="#">Mobile</a>-->
+<!--     <a class="main-header-link" href="#">Web</a>-->
 
-                </div>
-            </div>
-        </div>
-        {%endfor%}
     </div>
-</div>
+   </div>
+   <div class="content-wrapper">
+    <div class="content-wrapper-header">
+     <div class="content-wrapper-context">
+    </div>
+    <div class="content-section">
+
+     {% include 'files/add_new.html' %}
 
 
-{% include 'files/footer.html' %}
+        {% for files in object_list %}
+     <ul>
+      <li class="adobe-product">
+       <div class="products">
+
+
+        {{files.file_name}}
+       </div>
+       <span class="status">
+        <span class="status-circle green"></span>
+        Updated</span>
+       <div class="button-wrapper">
+        <a class="button-wrapper" role="button" href="{%url 'files:files_detail' files.pk%}">Open</a>
+       </div>
+      </li>
+     </ul>
+        {% endfor %}
+    </div>
+
+<!-- -->
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="overlay-app"></div>
 </div>
-<script src="/static/js/bootstrap.bundle.min.js"></script>
+</div>
+<script src="/static/js/design.js"></script>
 </body>
 </html>

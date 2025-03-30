@@ -1,0 +1,19 @@
+{
+  "uniforms": {
+    "u_color": [
+      1,
+      0,
+      0.6862745098039216
+    ],
+    "u_background": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "u_speed": 0.588,
+    "u_detail": 0.206
+  },
+  "fragmentShader": "uniform vec2 u_resolution;\n\nuniform float u_time;\n\nuniform vec3 u_color;\n\nuniform vec4 u_background;\n\nuniform float u_speed;\n\nuniform float u_detail;\n\n\n\n/*\n\n* @author Hazsi (kinda)\n\n*/\n\nmat2 m(float a) {\n\n    float c=cos(a), s=sin(a);\n\n    return mat2(c,-s,s,c);\n\n}\n\n\n\n\n\n\n#ifndef FNC_RGB2LUMA\n#define FNC_RGB2LUMA\nfloat rgb2luma(in vec3 color) {\n    return dot(color, vec3(0.299, 0.587, 0.114));\n}\nfloat rgb2luma(in vec4 color) {\n    return rgb2luma(color.rgb);\n}\n#endif\n\n\n#ifndef FNC_LUMA\n#define FNC_LUMA\nfloat luma(float v) { return v; }\nfloat luma(in vec3 v) { return rgb2luma(v); }\nfloat luma(in vec4 v) { return rgb2luma(v.rgb); }\n#endif\n\n\n\nfloat map(vec3 p) {\n\n    float t = u_time * u_speed;\n\n    p.xz *= m(t * 0.4);p.xy*= m(t * 0.1);\n\n    vec3 q = p * 2.0 + t;\n\n    return length(p+vec3(sin((t*u_speed) * 0.1))) * log(length(p) + 0.9) + cos(q.x + sin(q.z + cos(q.y))) * 0.5 - 1.0;\n\n}\n\n\n\nvoid main() {\n\n    vec2 a = gl_FragCoord.xy / u_resolution.x - vec2(0.5, 0.5);\n\n    vec3 cl = vec3(0.0);\n\n    float d = 2.5;\n\n\n\n    for (float i = 0.; i <= (1. + 20. * u_detail); i++) {\n\n        vec3 p = vec3(0, 0, 4.0) + normalize(vec3(a, -1.0)) * d;\n\n        float rz = map(p);\n\n        float f =  clamp((rz - map(p + 0.1)) * 0.5, -0.1, 1.0);\n\n        vec3 l = vec3(0.1, 0.3, 0.4) + vec3(5.0, 2.5, 3.0) * f;\n\n        cl = cl * l + smoothstep(2.5, 0.0, rz) * 0.6 * l;\n\n        d += min(rz, 1.0);\n\n    }\n\n    \n\n    vec4 color = vec4(min(u_color, cl),1.0);\n\n    //color = min(u_background, u_color);\n\n    color.r = max(u_background.r,color.r);\n\n    color.g = max(u_background.g,color.g);\n\n    color.b = max(u_background.b,color.b);\n\n    \n\n\n\n    gl_FragColor = color;\n\n}\n\n",
+  "vertexShader": "\n            void main() {\n                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n        }"
+}

@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 
 from files.forms import FilesForm
 from files.models import Files
@@ -16,4 +16,7 @@ class FileCreateView(CreateView):
     template_name = 'files/files_form.html'
     success_url = reverse_lazy('files:files_list')
     form_class = FilesForm
+
+class FileDetailView(DetailView):
+    model = Files
 
