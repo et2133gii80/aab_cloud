@@ -51,7 +51,7 @@ Your browser does not support the video tag.
 {% include 'files/left_panel.html' %}
   <div class="main-container">
    <div class="main-header">
-    <a class="menu-link-main" href="#">All Files</a>
+    <a class="menu-link-main" href="#">тут пишем что нам надо</a>
     <div class="header-menu">
 <!--     <a class="main-header-link is-active" href="#">Desktop</a>-->
 <!--     <a class="main-header-link" href="#">Mobile</a>-->
@@ -61,54 +61,22 @@ Your browser does not support the video tag.
    </div>
    <div class="content-wrapper">
     <div class="content-wrapper-header">
+
+       <div class="app-card">
+       <span>
+        Вы уверенны?
+       </span>
+       <div class="app-card__subtext">
+         <button type="submit" class="btn btn-danger ">Удалить</button>
+       </div>
+       <div class="app-card-buttons">
+         <a class="btn btn-primary" href="{% url 'files:files_list' %}" role="button">Отмена</a>
+<!--        <button class="content-button status-button">Update</button>-->
+<!--        <div class="menu"></div>-->
+       </div>
+      </div>
+
+
+
      <div class="content-wrapper-context">
     </div>
-    <div class="content-section">
-
-     {% include 'files/add_new.html' %}
-
-
-        {% for files in object_list %}
-     <ul>
-      <li class="adobe-product">
-       <div class="products">
-
-
-        {{files.file_name}}
-       </div>
-       <span class="status">
-        <span class="status-circle green"></span>
-        Updated</span>
-       <div class="button-wrapper">
-<!--        <a href="#">-->
-<!--      <svg viewBox="0 0 512 512">-->
-<!--       <g xmlns="http://www.w3.org/2000/svg" fill="currentColor">-->
-<!--        <path d="M0 0h128v128H0zm0 0M192 0h128v128H192zm0 0M384 0h128v128H384zm0 0M0 192h128v128H0zm0 0" data-original="#bfc9d1" />-->
-<!--       </g>-->
-<!--       <path xmlns="http://www.w3.org/2000/svg" d="M192 192h128v128H192zm0 0" fill="currentColor" data-original="#82b1ff" />-->
-<!--       <path xmlns="http://www.w3.org/2000/svg" d="M384 192h128v128H384zm0 0M0 384h128v128H0zm0 0M192 384h128v128H192zm0 0M384 384h128v128H384zm0 0" fill="currentColor" data-original="#bfc9d1" />-->
-<!--      </svg>-->
-<!--      All Files-->
-<!--     </a>-->
-           <a class="menu-link-main" role="button" href="{%url 'files:files_detail' files.pk%}">Open</a>
-<!--           <a class="menu-link-main" role="button" href="{%url 'files:files_delete' files.pk%}">delete</a>-->
-
-<!--           <a role="button" class="side-menu" href="{%url 'files:files_detail' files.pk%}">Primary</a>-->
-       </div>
-      </li>
-     </ul>
-
-        {% endfor %}
-    </div>
-
-<!-- -->
-    </div>
-   </div>
-  </div>
- </div>
- <div class="overlay-app"></div>
-</div>
-</div>
-<script src="/static/js/design.js"></script>
-</body>
-</html>
