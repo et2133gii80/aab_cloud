@@ -64,6 +64,7 @@ body {
   padding: 0.8em;
  }
 }
+
 .upload{box-sizing: border-box;
 border: 1px solid rgba(255, 255, 255, 0.1);
 border-radius: 18px;
@@ -502,7 +503,7 @@ body.light-mode .video-bg:before {
 }
 
 .content-button {
- background-color: red;
+
  border: none;
  padding: 8px 26px;
  color: #fff;
