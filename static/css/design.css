@@ -1,9 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://sethburkart123.github.io/sf-pro-fonts/fonts.css");
 
 * {
  outline: none;
  box-sizing: border-box;
 }
+
+
+
 
 :root {
  --theme-bg-color: rgba(16 18 27 / 40%);
@@ -45,7 +48,8 @@ html {
 }
 
 body {
- font-family: var(--body-font);
+ font-family: 'SF Pro Display', sans-serif;
+ font-weight: 900;
  background-image: url(https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg);
  background-size: cover;
  background-position: center;
@@ -60,6 +64,11 @@ body {
   padding: 0.8em;
  }
 }
+.upload{box-sizing: border-box;
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 18px;
+backdrop-filter: blur(0px);
+background: rgba(255, 255, 255, 0.1);}
 
 .video-bg {
  position: fixed;
@@ -462,8 +471,9 @@ body.light-mode .video-bg:before {
  }
 }
 
+
 .img-content {
- font-weight: 500;
+ font-weight: 600;
  font-size: 17px;
  display: flex;
  align-items: center;
@@ -492,7 +502,7 @@ body.light-mode .video-bg:before {
 }
 
 .content-button {
- background-color: #3a6df0;
+ background-color: red;
  border: none;
  padding: 8px 26px;
  color: #fff;
@@ -855,3 +865,4 @@ body.light-mode .video-bg:before {
  background: var(--scrollbar-bg);
  border-radius: 10px;
 }
+
