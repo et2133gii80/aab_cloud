@@ -5,16 +5,23 @@ from .models import Files
 class FilesForm(forms.ModelForm):
     class Meta:
         model = Files
-        fields = ('file_name', 'description','uploaded_file',)
+        fields = ('file_name','uploaded_file',)
 
-    # def __init__(self, *args, **kwargs):
-    #     super(FilesForm, self).__init__(*args, **kwargs)
-    #
-    #     self.fields['uploaded_file'].widget.attrs.update(
-    #         {
-    #             'class': 'dropzone',
-    #             'placeholder': 'Перетащите сюда файл'
-    #         }
-    #     )
+    def __init__(self, *args, **kwargs):
+        super(FilesForm, self).__init__(*args, **kwargs)
+
+        self.fields['uploaded_file'].widget.attrs.update(
+            {
+                'class': 'content-button',
+                'placeholder': 'Перетащите сюда файл'
+            }
+        )
+
+        self.fields['uploaded_file'].widget.attrs.update(
+            {
+                'class': 'content-button',
+                'placeholder': 'Перетащите сюда файл'
+            }
+        )
 
 

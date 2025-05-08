@@ -28,8 +28,10 @@ class FilesListView(ListView):
         context = super(FilesListView, self).get_context_data(**kwargs)
         return context
 
-class FoldersListView(ListView):
-    model = Folders
+class FilesCreateView(CreateView):
+    model = Files
+    form_class = FilesForm
+    success_url = reverse_lazy('files:files_list')
 
 #
 #

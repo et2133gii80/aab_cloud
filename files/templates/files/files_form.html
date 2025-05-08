@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/design.css">
+    <link rel="stylesheet" href="https://sethburkart123.github.io/sf-pro-fonts/fonts.css">
+</head>
+<body>
+<div class="video-bg">
+ <video width="320" height="240" autoplay loop muted>
+  <source src="static/aura/aura.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="dark-light">
+    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+   </div>
+<div class="app">
+ <div class="header">
+<!--  <div class="menu-circle"></div>--><div class=""></div>
+   <div class="header-menu">
+
+   <a class="content-button" href="">Home</a>
+   <a class="content-button" href="#">Cloud</a>
+       <a class="" href=""> </a>
+   <a class="" href="#"> </a>
+  </div>
+
+  <div class="search-bar">
+   <input type="text" placeholder="Search">
+  </div>
+<!--      <div class="header-menu">-->
+
+<!--   <a class="content-button" href="">Home</a>-->
+<!--   <a class="content-button" href="#">Cloud</a>-->
+<!--  </div>-->
+  <div class="header-profile">
+   <div class="notification">
+    <a class="content-button" href="">Settings</a>
+       <a class="content-button" href="#">Profile</a>
+   </div>
+
+   <img class="profile-img" src="static/img/test.png" alt="">
+  </div>
+ </div>
+
+{% include 'files/left_panel.html' %}
+
+  <div class="main-container">
+   <div class="main-header">
+<!--    <a class="menu-link-main" href="#">All Apps</a>-->
+    <div class="header-menu">
+<!--     <a class="main-header-link is-active" href="#">Desktop</a>-->
+<!--     <a class="main-header-link" href="#">Mobile</a>-->
+<!--     <a class="main-header-link" href="#">Web</a>-->
+
+    </div>
+   </div>
+   <div class="content-wrapper">
+       <div class="content-section">
+     <div class="content-section-title"></div>
+           <div class="apps-card">
+     </div>
+
+
+
+
+    <div class="content-section">
+     <div class="content-section-title">Installed</div>
+
+     <div>
+      <form class="adobe-product">
+       <div class="products">
+         {% csrf_token %}
+         {{ form.as_p }}
+       </div>
+        <button type="submit" class="img-content">
+                        {% if object %}
+                        Сохранить
+                        {% else %}
+                        Создать
+                        {%  endif %}
+                    </button>
+
+
+
+<!--        <div class="pop-up">-->
+<!--         <div class="pop-up__title">Update This App-->
+<!--          <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">-->
+<!--           <circle cx="12" cy="12" r="10" />-->
+<!--           <path d="M15 9l-6 6M9 9l6 6" />-->
+<!--          </svg>-->
+<!--         </div>-->
+<!--         <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>-->
+<!--         <div class="checkbox-wrapper">-->
+<!--          <input type="checkbox" id="check1" class="checkbox">-->
+<!--          <label for="check1">Import previous settings and preferences</label>-->
+<!--         </div>-->
+<!--         <div class="checkbox-wrapper">-->
+<!--          <input type="checkbox" id="check2" class="checkbox">-->
+<!--          <label for="check2">Remove old versions</label>-->
+<!--         </div>-->
+<!--         <div class="content-button-wrapper">-->
+<!--          <button class="content-button status-button open close">Cancel</button>-->
+<!--          <button class="content-button status-button">Continue</button>-->
+<!--         </div>-->
+<!--        </div>-->
+
+
+      </form>
+<!--         <div style="height: 20px;"></div>-->
+     </div>
+
+    </div>
+
+    </div>
+   </div>
+  </div>
+
+
+ <div class="overlay-app"></div>
+</div>
+<script src="/static/js/design.js"></script>
+</body>
+</html>
