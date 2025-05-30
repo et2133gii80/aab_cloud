@@ -6,7 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-<div class="body_cld">
+  <div class="body_cld">
     <div class="header_cloud">
       <div class="left_up_wnd">
         <h_cloud1>AAB_&laquo;Cloud&raquo;</h_cloud1>
@@ -24,13 +24,14 @@
     </div>
     <div class="left_container">
       <div class="menu">
-        <div class="menu-btn-upload">
+         <div class="menu-btn-upload">
         <a>Upload</a>
          </div>
 
           <div class="menu-btn-create">
         <a href="{% url 'files:files_create' %}">Create</a>
          </div>
+
 
         <div class="menu-section">
           <span class="section-title">Category Files</span>
@@ -44,7 +45,7 @@
         <div class="menu-section">
           <span class="section-title">Folders</span>
           <ul>
-            <li><a href="#">All Folders</a></li>
+            <li><a href="{% url 'files:folders_list' %}">All Folders</a></li>
           </ul>
         </div>
 
@@ -58,14 +59,20 @@
       </div>
 
     </div>
-                      <div class="main_body">
-                          <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <button type="submit" class="login-btn">Upload</button>
-                          </form>
-                      </div>
+<!--                      <div class="main_body">-->
+<!--                      {% for files in object_list %}-->
+<!--                  <div class="upload_file">-->
+<!--                      <a>{{files.file_name}}</a>-->
+<!--                      <h5>{{ files.file.size|filesizeformat }}</h5>-->
+<!--                      <p>{{files.created_at}}</p>-->
+<!--                    <svg  viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">-->
+<!--                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>-->
+<!--                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.096"/>-->
+<!--                    <g id="SVGRepo_iconCarrier"> <path d="M5 6H12H19M5 12H19M5 18H19" stroke="#ffffff" stroke-width="1.008" stroke-linecap="round"/> </g>-->
+<!--                    </svg>-->
+<!--                  </div>-->
+<!--                          {% endfor %}-->
 
 	</div>
-</body>
+     </body>
 </html>

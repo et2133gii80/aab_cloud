@@ -18,6 +18,7 @@ load_dotenv(override=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATE_DIR = os.path.join(BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -42,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'files',
+
+    'users',
+
 ]
 
 MIDDLEWARE = [
@@ -139,19 +143,22 @@ MEDIA_ROOT = BASE_DIR/ 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-from django.contrib.gis import gdal
 
-#GDAL_LIBRARY_PATH = r'C:\Пользователи\prosk\PycharmProjects\aab_cloud\.venv\Lib\site-package\django\contrib\gis\'
-#GDAL_LIBRARY_PATH = [gdal]
+AUTH_USER_MODEL = 'users.User'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL ='users:login'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_PORT = 465
+# EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = True
+# EMAIL_HOST_USER = 'proskmax@yandex.ru'
+# EMAIL_HOST_PASSWORD = 'pyiuxrvxnvtadivz'
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
-if os.name == 'nt':
-    import platform
-    OSGEO4W = r"C:\OSGeo4W"
-    if '64' in platform.architecture()[0]:
-        OSGEO4W += "64"
-    assert os.path.isdir(OSGEO4W), "Directory does not exist: " + OSGEO4W
-    os.environ['OSGEO4W_ROOT'] = OSGEO4W
-    os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
-    os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
-    os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']
+# DATA_UPLOAD_MAX_MEMORY_SIZE = 30 * 1024 * 1024  # 30 MB
+# FILE_UPLOAD_MAX_MEMORY_SIZE = 15 * 1024 * 1024  # 15 MB

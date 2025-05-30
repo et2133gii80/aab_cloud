@@ -1,0 +1,606 @@
+@import "https://sethburkart123.github.io/sf-pro-fonts/fonts.css";
+
+:root {
+  --body-font: "SF Pro Display", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+ overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0);
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--body-font);
+}
+
+.header_cloud {
+  width: 100vw;
+  position: relative;
+}
+
+.left_up_wnd {
+  position: absolute;
+  width: 31.56vw;
+  height: 4.9vw;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left_up_wnd::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.left_up_wnd::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.mdl_up_wnd {
+  position: absolute;
+  width: 10.83vw;
+  height: 4.9vw;
+  left: 31.56vw;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mdl_up_wnd::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.mdl_up_wnd::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.rgt_up_wnd {
+  position: absolute;
+  width: 57.6vw;
+  height: 4.9vw;
+  left: 42.39vw;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rgt_up_wnd::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.search-bar {
+  width: 50.16vw;
+  background-color: rgba(0, 0, 0);
+  border: none;
+  border-bottom: 0.15vw solid rgba(255, 255, 255);
+  padding: 0.52vw 0.78vw;
+}
+
+.search-bar input {
+  height: 2.2vw;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  font-size: 2.2vw;
+  font-weight: 100;
+  width: 100%;
+}
+
+.search-bar input::placeholder {
+  color: white;
+  opacity: 1;
+  font-family: var(--body-font);
+  letter-spacing: 0.04em;
+  font-size: 1.88vw;
+  font-weight: 100;
+}
+
+.search-bar input::-webkit-input-placeholder {
+  color: white;
+  font-family: var(--body-font);
+  letter-spacing: 0.04em;
+  font-size: 1.88vw;
+  font-weight: 100;
+}
+
+.mdl_up_wnd svg {
+  width: 80%;
+  height: 80%;
+  transform: translateY(-2%);
+}
+
+h_cloud1 {
+  color: rgb(255, 255, 255);
+  font-size: 3.6vw;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  z-index: 2;
+  margin: 0;
+  position: relative;
+}
+
+.left_container {
+  position: absolute;
+  width: 18.02vw;
+  height: calc(100vh - 4.9vw);
+  left: 0;
+  top: 4.9vw;
+  background-color: rgba(0, 0, 0);
+  border-right: 0.1vw solid rgb(255, 255, 255);
+  padding-top: 2vw;
+}
+
+.menu-btn {
+  position: relative;
+  margin-left: 0.7vw;
+  top: 50%;
+  width: 90%;
+  height: 3.44vw;
+  border: 0.1vw solid rgb(255, 255, 255);
+  background-color: transparent;
+  color: white;
+  font-size: 2vw;
+  font-weight: 300;
+  margin-bottom: 1.5vw;
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 2vw;
+  font-weight: 100;
+  margin-bottom: 1vw;
+  padding: 1vw;
+}
+
+.menu ul {
+  padding-left: 2vw;
+}
+
+.menu ul li {
+  margin: 0.3vw 0;
+}
+
+.menu ul a {
+  color: white;
+  font-size: 2vw;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 300;
+}
+
+.menu ul a.active {
+  text-decoration: underline;
+}
+
+.menu ul a:hover {
+  text-decoration: underline;
+}
+
+
+.main_body {
+  position: absolute;
+  width: 85vw;
+  height: 80vw;
+  top: 3.9vw;
+  padding-top: 3vw;
+  left: 18.02vw;
+}
+
+
+
+.upload_file {
+    position: relative;
+    width: 78vw;
+    height: 3.43vw;
+    left: 2vw;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    margin-bottom: 1.5vw;
+    a {
+    padding-left: 1vw;
+    padding-right: 2vw;
+    color: rgb(255, 255, 255);
+    font-family: SF Pro Display;
+    font-size: 2vw;
+    font-weight: 400;
+    line-height: 3vw;
+    }
+    h5 {
+    position: relative;
+    top: -2.6vw;
+    color: rgb(255, 255, 255);
+    font-family: SF Pro Display;
+    font-size: 2vw;
+    font-weight: 100;
+    padding-left: 12vw;
+    width: 50vw;
+
+    }
+    p {
+    position: relative;
+    top: -5.3vw;
+    color: rgb(255, 255, 255);
+    font-family: SF Pro Display;
+    font-size: 2vw;
+    font-weight: 100;
+    padding-left: 48vw;
+    }
+    svg {
+    position: relative;
+    height: 3vw;
+    padding-left: 74vw;
+    top: -8.1vw;
+    }
+    }
+
+
+.file_name_form {
+    position: relative;
+    width: 78vw;
+    height: 3.43vw;
+    left: 2vw;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    margin-bottom: 1.5vw;
+}
+
+.upload_file_form{
+    position: relative;
+    width: 78vw;
+    height: 35vw;
+    left: 2vw;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    margin-bottom: 1.5vw;
+}
+@import "https://sethburkart123.github.io/sf-pro-fonts/fonts.css";
+
+:root {
+  --body-font: "SF Pro Display", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+ overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0);
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--body-font);
+}
+
+.header_cloud {
+  width: 100vw;
+  position: relative;
+}
+
+.left_up_wnd {
+  position: absolute;
+  width: 31.56vw;
+  height: 4.9vw;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left_up_wnd::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.left_up_wnd::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.mdl_up_wnd {
+  position: absolute;
+  width: 10.83vw;
+  height: 4.9vw;
+  left: 31.56vw;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mdl_up_wnd::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.mdl_up_wnd::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.rgt_up_wnd {
+  position: absolute;
+  width: 57.6vw;
+  height: 4.9vw;
+  left: 42.39vw;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rgt_up_wnd::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.search-bar {
+  width: 50.16vw;
+  background-color: rgba(0, 0, 0);
+  border: none;
+  border-bottom: 0.15vw solid rgba(255, 255, 255);
+  padding: 0.52vw 0.78vw;
+}
+
+.search-bar input {
+  height: 2.2vw;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  font-size: 2.2vw;
+  font-weight: 100;
+  width: 100%;
+}
+
+.search-bar input::placeholder {
+  color: white;
+  opacity: 1;
+  font-family: var(--body-font);
+  letter-spacing: 0.04em;
+  font-size: 1.88vw;
+  font-weight: 100;
+}
+
+.search-bar input::-webkit-input-placeholder {
+  color: white;
+  font-family: var(--body-font);
+  letter-spacing: 0.04em;
+  font-size: 1.88vw;
+  font-weight: 100;
+}
+
+.mdl_up_wnd svg {
+  width: 80%;
+  height: 80%;
+  transform: translateY(-2%);
+}
+
+h_cloud1 {
+  color: rgb(255, 255, 255);
+  font-size: 3.6vw;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  z-index: 2;
+  margin: 0;
+  position: relative;
+}
+
+.left_container {
+  position: absolute;
+  width: 18.02vw;
+  height: calc(100vh - 4.9vw);
+  left: 0;
+  top: 4.9vw;
+  background-color: rgba(0, 0, 0);
+  border-right: 0.1vw solid rgb(255, 255, 255);
+  padding-top: 2vw;
+}
+
+.menu-btn {
+  position: relative;
+  margin-left: 0.7vw;
+  top: 50%;
+  width: 90%;
+  height: 3.44vw;
+  border: 0.1vw solid rgb(255, 255, 255);
+  background-color: transparent;
+  color: white;
+  font-size: 2vw;
+  font-weight: 300;
+  margin-bottom: 1.5vw;
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 2vw;
+  font-weight: 100;
+  margin-bottom: 1vw;
+  padding: 1vw;
+}
+
+.menu ul {
+  padding-left: 2vw;
+}
+
+.menu ul li {
+  margin: 0.3vw 0;
+}
+
+.menu ul a {
+  color: white;
+  font-size: 2vw;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 300;
+}
+
+.menu ul a.active {
+  text-decoration: underline;
+}
+
+.menu ul a:hover {
+  text-decoration: underline;
+}
+
+
+.main_body {
+  position: absolute;
+  width: 85vw;
+  height: 80vw;
+  top: 3.9vw;
+  padding-top: 3vw;
+  left: 18.02vw;
+}
+
+
+
+.upload_file {
+    position: relative;
+    width: 78vw;
+    height: 3.43vw;
+    left: 2vw;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    margin-bottom: 1.5vw;
+    a {
+    padding-left: 1vw;
+    padding-right: 2vw;
+    color: rgb(255, 255, 255);
+    font-family: SF Pro Display;
+    font-size: 2vw;
+    font-weight: 400;
+    line-height: 3vw;
+    }
+    h5 {
+    position: relative;
+    top: -2.6vw;
+    color: rgb(255, 255, 255);
+    font-family: SF Pro Display;
+    font-size: 2vw;
+    font-weight: 100;
+    padding-left: 12vw;
+    width: 50vw;
+
+    }
+    p {
+    position: relative;
+    top: -5.3vw;
+    color: rgb(255, 255, 255);
+    font-family: SF Pro Display;
+    font-size: 2vw;
+    font-weight: 100;
+    padding-left: 48vw;
+    }
+    svg {
+    position: relative;
+    height: 3vw;
+    padding-left: 74vw;
+    top: -8.1vw;
+    }
+    }
+
+
+.file_name_form {
+    position: relative;
+    width: 78vw;
+    height: 3.43vw;
+    left: 2vw;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    margin-bottom: 1.5vw;
+}
+
+.upload_file_form{
+    position: relative;
+    width: 78vw;
+    height: 35vw;
+    left: 2vw;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    margin-bottom: 1.5vw;
+}

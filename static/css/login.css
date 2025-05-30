@@ -1,3 +1,122 @@
+@import "https://sethburkart123.github.io/sf-pro-fonts/fonts.css";
+:root {
+  --body-font: "SF Pro Display", sans-serif;
+}
+
+body {
+  background-color: rgba(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--body-font);
+}
+
+.footer-container {
+  position: fixed;
+  bottom: 2.08vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  color: white;
+  font-family: "SF Pro Display", sans-serif;
+}
+
+.line {
+  width: 100%;
+  margin: 0.63vw 0;
+  border: 0.1vw solid rgb(255, 255, 255);
+}
+
+.footer-text {
+  text-align: left;
+  font-size: 1.04vw;
+  font-weight: 400;
+  line-height: 1.93;
+  letter-spacing: 0.04em;
+}
+
+.login-container {
+  background: transparent;
+  padding: 2.083vw;
+  border-radius: 0.417vw;
+  width: 100%;
+  max-width: 20.833vw;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.563vw;
+  color: rgb(255, 255, 255);
+  font-size: 1.667vw;
+}
+
+.input-group {
+  margin-bottom: 1.042vw;
+}
+
+input {
+  width: 100%;
+  padding: 0.625vw 0.521vw;
+  border: none;
+  border-bottom: 0.052vw solid rgb(255, 255, 255);
+  font-size: 0.833vw;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  transition: border-color 0.3s ease;
+}
+
+input::placeholder {
+  text-align: center;
+  color: rgb(204, 204, 204);
+}
+
+input:focus {
+  outline: none;
+  border-bottom-color: rgb(255, 255, 255);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.625vw;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  border: 0.104vw solid rgb(255, 255, 255);
+  border-radius: 0.208vw;
+  font-size: 0.833vw;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.042vw;
+}
+
+.login-btn:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.042vw;
+  color: rgb(255, 255, 255);
+  font-size: 0.729vw;
+}
+
+.register-link a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.register-link a:hover {
+  opacity: 1;
+}
+
+
+
+
+
 @import url("https://sethburkart123.github.io/sf-pro-fonts/fonts.css");
 
 * {
@@ -676,6 +795,7 @@ margin-top: 0px;
 }
 
 .file-item {
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -688,21 +808,86 @@ margin-top: 0px;
   backdrop-filter: blur(0px);
   background: rgba(255, 255, 255, 0.1);
   margin: 2vh;
+  margin-left: 30px;
+  padding-right: 0px;
+
 }
+
 
 .file-item a:last-child {
   margin-left: auto;
 }
 
-.file-item:hover a{
+.file-item:hover {
  background-color: var(--hover-menu-bg2);
 }
 
 
-
-.file-item:hover a{
- background-color: var(--hover-menu-bg2);
+.file-item a{
+  color: var(--theme-color);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 6%;
+  text-decoration: none;
 }
+
+.file-item_1 {
+padding-left: 915px;
+}
+
+.file-item_1 a{
+
+}
+
+
+
+
+.side-menu-create{
+display: flex;
+ flex-direction: column;
+ white-space: nowrap;
+ a {
+  text-decoration: none;
+  color: var(--theme-color);
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  padding: 8px;
+  font-size: 24px;
+  border-radius: 6px;
+  transition: 0.3s;
+  &:hover {
+   background-color: var(--hover-menu-bg2);
+  }
+ }
+ svg {
+  width: 25px;
+  margin-right: 41px;
+ }
+  a {
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(19.2px);
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 0px
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -873,7 +1058,7 @@ margin-top: 0px;
 
 .content-section .close {
  margin-right: 0;
- width: 24px;
+ width: 240px;
 }
 
 .checkbox-wrapper {

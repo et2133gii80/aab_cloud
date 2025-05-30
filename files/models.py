@@ -1,18 +1,13 @@
-from tkinter.constants import CASCADE
+from sys import maxsize
 
 from django.db import models
-# Create your models here.
-
-
 class Folders(models.Model):
-    folder_name = models.CharField(max_length=30, verbose_name='имя папки')
-    description = models.TextField(verbose_name='описание', null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='дата создания')
-
+    folders_name = models.CharField(max_length=150)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):
-        return f'{self.folder_name}'
+        return f'{self.folders_name}'
 
     class Meta:
         verbose_name = 'папка'
@@ -21,17 +16,17 @@ class Folders(models.Model):
 
 
 class Files(models.Model):
-    file_name = models.CharField(max_length=150, verbose_name='имя файла')
+    file_name = models.CharField(max_length=150)
     description = models.TextField(verbose_name='описание', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='дата создания')
-    #owner = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
-    uploaded_file = models.FileField(upload_to='files/users_files', verbose_name='загрузка файла')
-    folder_name = models.ForeignKey(Folders,  on_delete=models.CASCADE, null=True, blank=True)
-
+    uploaded_file = models.FileField(upload_to='files/users_files', verbose_name='загрузка файла',)
+    favorite = models.BooleanField(default=False)
+    folder = models.ForeignKey(Folders, on_delete=models.CASCADE, blank=True, null=True)
 
 
     def __str__(self):
         return f'{self.file_name}'
+
 
     class Meta:
         verbose_name = 'файл'

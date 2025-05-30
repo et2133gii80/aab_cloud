@@ -675,27 +675,26 @@ margin-top: 0px;
   color: var(--theme-color);
 }
 
-.file-item {
+.file-item{
+
+  padding: 8px;
   display: flex;
-  flex-direction: row;
   align-items: center;
+  width: 962px;
+
+  a{
   gap: 10px;
-  flex-wrap: wrap;
-  padding: 3vh;
-  box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+  border-radius: 6px;
+  padding-left: 10px;
+
   border-radius: 18px;
-  backdrop-filter: blur(0px);
-  background: rgba(255, 255, 255, 0.1);
-  margin: 2vh;
-}
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 14px
 
-.file-item a:last-child {
-  margin-left: auto;
 }
-
-.file-item:hover a{
- background-color: var(--hover-menu-bg2);
 }
 
 
