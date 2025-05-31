@@ -25,7 +25,7 @@
     <div class="left_container">
       <div class="menu">
         <div class="menu-btn-upload">
-        <a>Upload</a>
+        <a href="{% url 'files:files_create' %}">Upload</a>
          </div>
 
           <div class="menu-btn-create">
@@ -35,26 +35,26 @@
         <div class="menu-section">
           <span class="section-title">Category Files</span>
           <ul>
-            <li><a href="#">All Files</a></li>
+            <li><a href="{% url 'files:files_list' %}">All Files</a></li>
             <li><a href="#">Recent</a></li>
-            <li><a href="#">Favourites</a></li>
+            <li><a href="{% url 'files:files_by_favourites' %}">Favourites</a></li>
           </ul>
         </div>
 
         <div class="menu-section">
           <span class="section-title">Folders</span>
           <ul>
-            <li><a href="#">All Folders</a></li>
+            <li><a href="{% url 'files:folders_list' %}">All Folders</a></li>
           </ul>
         </div>
 
-        <div class="menu-section">
-          <span class="section-title">General Access</span>
-          <ul>
-            <li><a href="#">Files</a></li>
-            <li><a href="#">Folders</a></li>
-          </ul>
-        </div>
+<!--        <div class="menu-section">-->
+<!--          <span class="section-title">General Access</span>-->
+<!--          <ul>-->
+<!--            <li><a href="#">Files</a></li>-->
+<!--            <li><a href="#">Folders</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
       </div>
 
     </div>

@@ -12,5 +12,7 @@ urlpatterns = [
     path('files/update/<int:pk>/', views.FilesUpdateView.as_view(), name='files_update'),
     path('files/delete/<int:pk>/', views.FilesDelete.as_view(), name='files_delete'),
     path('folders/<int:pk>/', views.FilesByFoldersView.as_view(), name= 'files_by_folders'),
+    path('folders/create/', views.FoldersCreateView.as_view(), name='folders_create'),
+    path('files/', views.FavouritesFilesView.as_view(), name= 'files_by_favourites'),
     # path('activate/<uidb64>/<token>', views.send_activate_email, name='activate')
 ]

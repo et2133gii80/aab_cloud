@@ -14,11 +14,11 @@ class CustomUserCreationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(CustomUserCreationForm, self).__init__(*args, **kwargs)
-        for field in ['email', 'username']:
-            self.fields[field].label = None
+        for field in ['email', 'username','password1','password2']:
+            self.fields[field].label = ''
 
         for field_name in ['email', 'username', 'password1','password2']:
-            self.fields[field_name].help_text = None
+            self.fields[field_name].help_text = ''
 
 
         self.fields['email'].widget.attrs.update({

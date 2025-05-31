@@ -8,21 +8,36 @@ from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
-
+from django.core.exceptions import PermissionDenied
 from config import settings
-from files.forms import FilesForm
+from files.forms import FilesForm, FoldersForm
 from files.models import Files
-from files.services import get_files_by_folders
+from files.services import get_files_by_folders, get_favourites_files
 from files.models import Folders
 
 
 class FilesListView(ListView):
     model = Files
+    #
+    # def get_queryset(self):
+    #     user_id = self.kwargs.get('pk')
+    #     return get_files_by_folders(user_id=user_id)
+
 
 class FilesCreateView(CreateView):
     model = Files
     form_class = FilesForm
     success_url = reverse_lazy('files:files_list')
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
+    # def get_form_class(self):
+    #     files = self.get_object()
+    #     if files.owner_id == self.request.user.id:
+    #         return FilesForm
+
 
 class FilesUpdateView(UpdateView):
     model = Files
@@ -39,6 +54,21 @@ class FilesDetailView(DetailView):
 class FoldersListView(ListView):
     model = Folders
 
+class FoldersCreateView(CreateView):
+    model = Folders
+    form_class = FoldersForm
+    success_url = reverse_lazy('files:folders_list')
+
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
+    # def get_form_class(self):
+    #     folders = self.get_object()
+    #     if folders.owner_id == self.request.user.id:
+    #         return FoldersForm
+
 class FilesByFoldersView(ListView):
     model = Folders
     def get_queryset(self):
@@ -46,11 +76,17 @@ class FilesByFoldersView(ListView):
         return get_files_by_folders(folders_id=folders_id)
 
 
-def download_file(request, file_name):
-    files_path = ''
+class FavouritesFilesView(ListView):
+    model = Files
+    def get_queryset(self):
+        return get_favourites_files()
 
-    if os.path.exists(files_path):
-        return FileResponse(open(files_path))
+
+# def download_file(request, file_name):
+#     files_path = ''
+#
+#     if os.path.exists(files_path):
+#         return FileResponse(open(files_path))
 
 # class FavouritesFilesListView(ListView):
 #     model = Files

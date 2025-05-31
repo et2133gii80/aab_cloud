@@ -282,7 +282,6 @@ text-decoration: none;
 }
 
 
-
 .upload_file {
     position: relative;
     width: 78vw;
@@ -313,7 +312,7 @@ text-decoration: none;
     }
     p {
     position: relative;
-    top: -5.3vw;
+    top: -9.3vw;
     color: rgb(255, 255, 255);
     font-family: SF Pro Display;
     font-size: 2vw;
@@ -324,7 +323,7 @@ text-decoration: none;
     position: relative;
     height: 3vw;
     padding-left: 74vw;
-    top: -8.1vw;
+    top: -9.1vw;
     }
     }
 
@@ -338,14 +337,15 @@ text-decoration: none;
     box-sizing: border-box;
     border: 1px solid rgb(255, 255, 255);
     margin-bottom: 1.5vw;
+    background-color: black;
+color: transparent
+font-family: SF Pro Display;
+font-size: 2.1vw;
+font-weight: 400;
+margin-left: 32%;
+letter-spacing: 4%;
+top: 100%;
+text-decoration: none;
+
 }
 
-.upload_file_form{
-    position: relative;
-    width: 78vw;
-    height: 35vw;
-    left: 2vw;
-    box-sizing: border-box;
-    border: 1px solid rgb(255, 255, 255);
-    margin-bottom: 1.5vw;
-}

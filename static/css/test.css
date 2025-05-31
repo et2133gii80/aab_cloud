@@ -6,7 +6,7 @@
 
 * {
   margin: 0;
-  padding: 0;
+
   box-sizing: border-box;
 }
 
@@ -282,7 +282,6 @@ text-decoration: none;
 }
 
 
-
 .upload_file {
     position: relative;
     width: 78vw;
@@ -291,42 +290,65 @@ text-decoration: none;
     box-sizing: border-box;
     border: 1px solid rgb(255, 255, 255);
     margin-bottom: 1.5vw;
-    a {
-    padding-left: 1vw;
+
+}
+
+.file_name {
+    a{
+
+    height: 3.43vw;
     padding-right: 2vw;
-    color: rgb(255, 255, 255);
-    font-family: SF Pro Display;
-    font-size: 2vw;
-    font-weight: 400;
-    line-height: 3vw;
-    }
-    h5 {
-    position: relative;
-    top: -2.6vw;
-    color: rgb(255, 255, 255);
-    font-family: SF Pro Display;
-    font-size: 2vw;
-    font-weight: 100;
-    padding-left: 12vw;
-    width: 50vw;
+     color: rgb(255, 255, 255);
+        font-family: SF Pro Display;
+        font-size: 2vw;
+        font-weight: 400
+
+}
+}
+
+ .Download{
+    width: auto;
+    height: 3.43vw;
+    margin-left: 2vw;
+    padding-right: 2vw;
+     color: rgb(255, 255, 255);
+        font-family: SF Pro Display;
+        font-size: 2vw;
+        font-weight: 400
 
     }
-    p {
-    position: relative;
-    top: -5.3vw;
-    color: rgb(255, 255, 255);
+
+
+
+
+
+
+
+a{
+width: auto;
+height: 3.43vw;
+margin-left: 100vw;
+padding-right: 2vw;
+ color: rgb(255, 255, 255);
     font-family: SF Pro Display;
     font-size: 2vw;
-    font-weight: 100;
-    padding-left: 53vw;
+    font-weight: 400}
+
+
     }
-    svg {
-    position: relative;
-    height: 3vw;
-    padding-left: 74vw;
-    top: -8.1vw;
-    }
-    }
+
+
+
+
+a{
+ color: rgb(255, 255, 255);
+    font-family: SF Pro Display;
+    font-size: 2vw;
+    font-weight: 400
+}
+}
+
+
 
 
 .file_name_form {
@@ -337,14 +359,15 @@ text-decoration: none;
     box-sizing: border-box;
     border: 1px solid rgb(255, 255, 255);
     margin-bottom: 1.5vw;
+    background-color: black;
+color: transparent
+font-family: SF Pro Display;
+font-size: 2.1vw;
+font-weight: 400;
+margin-left: 32%;
+letter-spacing: 4%;
+top: 100%;
+text-decoration: none;
+
 }
 
-.upload_file_form{
-    position: relative;
-    width: 78vw;
-    height: 35vw;
-    left: 2vw;
-    box-sizing: border-box;
-    border: 1px solid rgb(255, 255, 255);
-    margin-bottom: 1.5vw;
-}

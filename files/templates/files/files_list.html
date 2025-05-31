@@ -3,7 +3,7 @@
 {% if user.is_authenticated %}
 <head>
     <meta charset="UTF-8">
-   <link rel="stylesheet" href="/static/css/main_page.css">
+   <link rel="stylesheet" href="/static/css/files_list.css">
     <title>Title</title>
 </head>
 <body>
@@ -26,11 +26,11 @@
     <div class="left_container">
       <div class="menu">
          <div class="menu-btn-upload">
-        <a>Upload</a>
+        <a href="{% url 'files:files_create' %}">Upload</a>
          </div>
 
           <div class="menu-btn-create">
-        <a href="{% url 'files:files_create' %}">Create</a>
+        <a href="{% url 'files:folders_create' %}">Create</a>
          </div>
 
 
@@ -39,7 +39,7 @@
           <ul>
             <li><a href="#">All Files</a></li>
             <li><a href="#">Recent</a></li>
-            <li><a href="#">Favourites</a></li>
+            <li><a href="{% url 'files:files_by_favourites' %}">Favourites</a></li>
           </ul>
         </div>
 
@@ -50,30 +50,34 @@
           </ul>
         </div>
 
-        <div class="menu-section">
-          <span class="section-title">General Access</span>
-          <ul>
-            <li><a href="#">Files</a></li>
-            <li><a href="#">Folders</a></li>
-          </ul>
-        </div>
+<!--        <div class="menu-section">-->
+<!--          <span class="section-title">General Access</span>-->
+<!--          <ul>-->
+<!--            <li><a href="#">Files</a></li>-->
+<!--            <li><a href="#">Folders</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
       </div>
 
     </div>
                       <div class="main_body">
-                      {% for files in object_list %}
-                  <div class="upload_file">
-                      <a>{{files.file_name}}</a>
-                      <h5>{{ files.file.size|filesizeformat }}</h5>
-                      <p>{{files.created_at}}</p>
-                    <svg  viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.096"/>
-                    <g id="SVGRepo_iconCarrier"> <path d="M5 6H12H19M5 12H19M5 18H19" stroke="#ffffff" stroke-width="1.008" stroke-linecap="round"/> </g>
-                    </svg>
-                  </div>
-                          {% endfor %}
 
+                      {% for files in object_list %}
+                          {% if files.owner == request.user or user.is_superuser %}
+                            <div class="upload_file">
+
+                                <a class="file_name">  {{files.file_name}}</a>
+<!--&lt;!&ndash;                            <h5>{{ files.file.size|filesizeformat }}</h5>&ndash;&gt;-->
+
+                                <a class="Download" href="{{files.uploaded_file.url}}">Download</a>
+
+                                <a class="date_time">{{files.created_at}}</a>
+                                {% if files.favorite == True %}
+                                <a href="{% url 'files:files_by_favourites' %}">Favorite</a>
+                                {% endif %}
+                  </div>
+                   {% endif %}
+                  {% endfor %}
 	</div>
      </div>
 
