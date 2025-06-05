@@ -1,0 +1,114 @@
+@import "https://sethburkart123.github.io/sf-pro-fonts/fonts.css";
+:root {
+  --body-font: "SF Pro Display", sans-serif;
+}
+
+body {
+  background-color: rgba(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--body-font);
+}
+
+.footer-container {
+  position: fixed;
+  bottom: 2.08vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  color: white;
+  font-family: "SF Pro Display", sans-serif;
+}
+
+.line {
+  width: 100%;
+  margin: 0.63vw 0;
+  border: 0.1vw solid rgb(255, 255, 255);
+}
+
+.footer-text {
+  text-align: left;
+  font-size: 1.04vw;
+  font-weight: 400;
+  line-height: 1.93;
+  letter-spacing: 0.04em;
+}
+
+.login-container {
+  background: transparent;
+  padding: 2.083vw;
+  border-radius: 0.417vw;
+  width: 100%;
+  max-width: 20.833vw;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.563vw;
+  color: rgb(255, 255, 255);
+  font-size: 1.667vw;
+}
+
+.input-group {
+  margin-bottom: 1.042vw;
+}
+
+input {
+  width: 100%;
+  padding: 0.625vw 0.521vw;
+  border: none;
+  border-bottom: 0.052vw solid rgb(255, 255, 255);
+  font-size: 0.833vw;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  transition: border-color 0.3s ease;
+}
+
+input::placeholder {
+  text-align: center;
+  color: rgb(204, 204, 204);
+}
+
+input:focus {
+  outline: none;
+  border-bottom-color: rgb(255, 255, 255);
+}
+
+.register-btn {
+  width: 100%;
+  padding: 0.625vw;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  border: 0.104vw solid rgb(255, 255, 255);
+  border-radius: 0.208vw;
+  font-size: 0.833vw;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.042vw;
+}
+
+.register-btn:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.042vw;
+  color: rgb(255, 255, 255);
+  font-size: 0.729vw;
+}
+
+.register-link a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.register-link a:hover {
+  opacity: 1;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+   <link rel="stylesheet" href="/static/css/login.css">
+    <title>Title</title>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>Sign In</h1>
+    <!--  Узанть про sign-in и Sign up, как менять эту надпись?  -->
+    <form method="post" enctype="multipart/form-data">
+      <div class="input-group">
+         {% csrf_token %}
+          {{ form.as_p }}
+      </div>
+      <button type="submit" class="login-btn">LOGIN</button>
+      <!-- Узнать у Ильи про кнопку Login/registr, как менять надпись в кнопке -->
+    </form>
+     <div class="register-link">
+        Do not have account?
+        <a href="{% url 'users:register' %}">Register</a>
+        <!--    узнать про login/register как менять при регистрации на Login и наоборот  -->
+      </div>
+  </div>
+
+  <div class="author">
+    <div class="footer-container">
+      <div class="footer-text">Designed by: Sib_Semeonoff / Dew: Ilyacgproject</div>
+      <div class="line"></div>
+      <div class="footer-text">All rights reserved</div>
+    </div>
+  </div>
+</body>
+</html>
