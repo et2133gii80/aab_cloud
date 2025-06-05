@@ -11,26 +11,21 @@ class FilesForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FilesForm, self).__init__(*args, **kwargs)
 
-        self.fields['file_name'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Введите название товара'
-        })
+        self.fields["file_name"].widget.attrs.update(
+            {"class": "form-control", "placeholder": "Введите название товара"}
+        )
 
-        self.fields['uploaded_file'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Введите описание товара'
-        })
+        self.fields["uploaded_file"].widget.attrs.update(
+            {"class": "form-control", "placeholder": "Введите описание товара"}
+        )
 
-        self.fields['folder'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Загрузите изображение'
-        })
+        self.fields["folder"].widget.attrs.update(
+            {"class": "form-control", "placeholder": "Загрузите изображение"}
+        )
 
-        self.fields['favorite'].widget.attrs.update({
-            'class': 'form-control',
-            'placeholder': 'Выберете категорию'
-        })
-
+        self.fields["favorite"].widget.attrs.update(
+            {"class": "form-control", "placeholder": "Выберете категорию"}
+        )
 
 
 class FoldersForm(forms.ModelForm):

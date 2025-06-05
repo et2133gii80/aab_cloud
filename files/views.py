@@ -5,8 +5,11 @@ from django.views.generic import CreateView, DeleteView, ListView
 
 from files.forms import FilesForm, FoldersForm
 from files.models import Files, Folders
-from files.services import (get_favourites_files, get_files_by_folders,
-                            recent_file_and_folders)
+from files.services import (
+    get_favourites_files,
+    get_files_by_folders,
+    recent_file_and_folders,
+)
 
 
 # @method_decorator(cache_page(60*15), name='dispatch')
