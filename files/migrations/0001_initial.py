@@ -7,35 +7,63 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Files',
+            name="Files",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('file_name', models.CharField(max_length=150)),
-                ('description', models.TextField(blank=True, null=True, verbose_name='описание')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='дата создания')),
-                ('uploaded_file', models.FileField(upload_to='files/users_files', verbose_name='загрузка файла')),
-                ('favorite', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("file_name", models.CharField(max_length=150)),
+                (
+                    "description",
+                    models.TextField(blank=True, null=True, verbose_name="описание"),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="дата создания"
+                    ),
+                ),
+                (
+                    "uploaded_file",
+                    models.FileField(
+                        upload_to="files/users_files", verbose_name="загрузка файла"
+                    ),
+                ),
+                ("favorite", models.BooleanField(default=False)),
             ],
             options={
-                'verbose_name': 'файл',
-                'verbose_name_plural': 'файлы',
+                "verbose_name": "файл",
+                "verbose_name_plural": "файлы",
             },
         ),
         migrations.CreateModel(
-            name='Folders',
+            name="Folders",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('folders_name', models.CharField(max_length=150)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("folders_name", models.CharField(max_length=150)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'verbose_name': 'папка',
-                'verbose_name_plural': 'папки',
+                "verbose_name": "папка",
+                "verbose_name_plural": "папки",
             },
         ),
     ]

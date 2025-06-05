@@ -1,85 +1,79 @@
-import os.path
-
-from django.contrib.sites.shortcuts import get_current_site
-from django.core.mail import send_mail
-from django.http import FileResponse
-from django.template.loader import render_to_string
 from django.urls import reverse_lazy
-from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
-from django.core.exceptions import PermissionDenied
-from config import settings
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.generic import CreateView, DeleteView, ListView
+
 from files.forms import FilesForm, FoldersForm
-from files.models import Files
-from files.services import get_files_by_folders, get_favourites_files
-from files.models import Folders
+from files.models import Files, Folders
+from files.services import (get_favourites_files, get_files_by_folders,
+                            recent_file_and_folders)
 
 
+# @method_decorator(cache_page(60*15), name='dispatch')
 class FilesListView(ListView):
     model = Files
-    #
-    # def get_queryset(self):
-    #     user_id = self.kwargs.get('pk')
-    #     return get_files_by_folders(user_id=user_id)
 
 
 class FilesCreateView(CreateView):
     model = Files
     form_class = FilesForm
-    success_url = reverse_lazy('files:files_list')
+    success_url = reverse_lazy("files:files_list")
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
-    # def get_form_class(self):
-    #     files = self.get_object()
-    #     if files.owner_id == self.request.user.id:
-    #         return FilesForm
-
-
-class FilesUpdateView(UpdateView):
-    model = Files
-    success_url = reverse_lazy('files:files_list')
 
 class FilesDelete(DeleteView):
     model = Files
-    success_url = reverse_lazy('files:files_list')
-    permission_required = 'files:delete_file'
+    success_url = reverse_lazy("files:files_list")
+    permission_required = "files:delete_file"
 
-class FilesDetailView(DetailView):
-    model = Files
 
+# @method_decorator(cache_page(60*15), name='dispatch')
 class FoldersListView(ListView):
     model = Folders
+
 
 class FoldersCreateView(CreateView):
     model = Folders
     form_class = FoldersForm
-    success_url = reverse_lazy('files:folders_list')
-
+    success_url = reverse_lazy("files:folders_list")
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
-    # def get_form_class(self):
-    #     folders = self.get_object()
-    #     if folders.owner_id == self.request.user.id:
-    #         return FoldersForm
 
+class FoldersDelete(DeleteView):
+    model = Folders
+    success_url = reverse_lazy("files:files_list")
+    permission_required = "files:delete_folder"
+
+
+# @method_decorator(cache_page(60*15), name='dispatch')
 class FilesByFoldersView(ListView):
     model = Folders
+
     def get_queryset(self):
-        folders_id = self.kwargs.get('pk')
+        folders_id = self.kwargs.get("pk")
         return get_files_by_folders(folders_id=folders_id)
 
 
+# @method_decorator(cache_page(60*15), name='dispatch')
 class FavouritesFilesView(ListView):
     model = Files
+
     def get_queryset(self):
         return get_favourites_files()
+
+
+# @method_decorator(cache_page(60*15), name='dispatch')
+class RecentListView(ListView):
+    model = Folders, Files
+
+    def get_queryset(self):
+        return recent_file_and_folders()
 
 
 # def download_file(request, file_name):

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skystore</title>
+
+    <link rel="stylesheet" href="/static/css/files_list.css">
+</head>
+
+<body>
+
+
+  <div class="body_cld">
+    <div class="header_cloud">
+      <div class="left_up_wnd">
+        <h_cloud1>AAB_&laquo;Cloud&raquo;</h_cloud1>
+      </div>
+      <div class="mdl_up_wnd">
+        <svg viewBox="0 0 132 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="Vector 1" d="M108.98 83C115.13 81.64 128 75.64 128 62.41C128 38.78 104.81 38.78 104.81 38.78C104.81 38.78 105.24 5.01 73.12 4C56.04 4 43.8 24.5 43.8 24.5C43.8 24.5 39.21 20.71 30.79 23.75C20.29 27.53 20.83 37.42 20.83 37.42C20.83 37.42 4 39.22 4 61.25C4 72.99 16.67 83 23.73 83L108.98 83Z" stroke="#FFFFFF" stroke-opacity="1" stroke-width="8" />
+        </svg>
+      </div>
+      <div class="rgt_up_wnd">
+        <div class="search-bar">
+          <input type="text" placeholder="Search Files...">
+        </div>
+      </div>
+    </div>
+    <div class="left_container">
+      <div class="menu">
+         <div class="menu-btn-upload">
+        <a href="{% url 'files:files_create' %}">Upload</a>
+         </div>
+
+          <div class="menu-btn-create">
+        <a href="{% url 'files:folders_create' %}">Create</a>
+         </div>
+
+
+        <div class="menu-section">
+          <span class="section-title">Category Files</span>
+          <ul>
+            <li><a href="{% url 'files:files_list' %}">All Files</a></li>
+            <li><a href="{% url 'files:recent_files_and_folders' %}">Recent</a></li>
+            <li><a href="{% url 'files:files_by_favourites' %}">Favourites</a></li>
+          </ul>
+        </div>
+
+        <div class="menu-section">
+          <span class="section-title">Folders</span>
+          <ul>
+            <li><a href="{% url 'files:folders_list' %}">All Folders</a></li>
+          </ul>
+        </div>
+
+<!--        <div class="menu-section">-->
+<!--          <span class="section-title">General Access</span>-->
+<!--          <ul>-->
+<!--            <li><a href="#">Files</a></li>-->
+<!--            <li><a href="#">Folders</a></li>-->
+<!--          </ul>-->
+<!--        </div>-->
+      </div>
+
+    </div>
+                      <div class="main_body">
+                          <form class="row" method="post" enctype="multipart/form-data">
+
+                          <h_cloud1 >ARE YOU SURE YOU WANT TO DELETE THE FOLDER-{{object.folder_name}}?</h_cloud1>
+                          {% csrf_token %}
+                          <div class="upload_file">
+
+                                <button type="submit" class="btn btn-danger ">Удалить</button>
+
+                                <a href="{% url 'files:files_list' %}">CANCEL</a>
+                  </div>
+                               </form>
+                  </div>
+
+	</div>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

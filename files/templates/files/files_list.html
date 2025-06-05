@@ -3,7 +3,7 @@
 {% if user.is_authenticated %}
 <head>
     <meta charset="UTF-8">
-   <link rel="stylesheet" href="/static/css/files_list.css">
+   <link rel="stylesheet" href="/static/css/files_list_copy.css">
     <title>Title</title>
 </head>
 <body>
@@ -37,8 +37,8 @@
         <div class="menu-section">
           <span class="section-title">Category Files</span>
           <ul>
-            <li><a href="#">All Files</a></li>
-            <li><a href="#">Recent</a></li>
+            <li><a href="{% url 'files:files_list' %}">All Files</a></li>
+            <li><a href="{% url 'files:recent_files_and_folders' %}">Recent</a></li>
             <li><a href="{% url 'files:files_by_favourites' %}">Favourites</a></li>
           </ul>
         </div>
@@ -67,7 +67,6 @@
                             <div class="upload_file">
 
                                 <a class="file_name">  {{files.file_name}}</a>
-<!--&lt;!&ndash;                            <h5>{{ files.file.size|filesizeformat }}</h5>&ndash;&gt;-->
 
                                 <a class="Download" href="{{files.uploaded_file.url}}">Download</a>
 
@@ -75,6 +74,7 @@
                                 {% if files.favorite == True %}
                                 <a href="{% url 'files:files_by_favourites' %}">Favorite</a>
                                 {% endif %}
+                                <a  class="file_name" href="{% url 'files:files_delete' files.pk %}">Delete</a>
                   </div>
                    {% endif %}
                   {% endfor %}

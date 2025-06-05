@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   <link rel="stylesheet" href="/static/css/main_page.css">
+   <link rel="stylesheet" href="/static/css/test.css">
     <title>Title</title>
 </head>
 <body>
@@ -25,34 +25,26 @@
     <div class="left_container">
       <div class="menu">
         <div class="menu-btn-upload">
-        <a>Upload</a>
+        <a href="{% url 'files:files_create' %}">Upload</a>
          </div>
 
           <div class="menu-btn-create">
-        <a href="{% url 'files:files_create' %}">Create</a>
+        <a href="{% url 'files:folders_create' %}">Create</a>
          </div>
 
         <div class="menu-section">
           <span class="section-title">Category Files</span>
           <ul>
-            <li><a href="#">All Files</a></li>
+            <li><a href="{% url 'files:files_list' %}">All Files</a></li>
             <li><a href="#">Recent</a></li>
-            <li><a href="#">Favourites</a></li>
+            <li><a href="{% url 'files:files_by_favourites' %}">Favourites</a></li>
           </ul>
         </div>
 
         <div class="menu-section">
           <span class="section-title">Folders</span>
           <ul>
-            <li><a href="#">All Folders</a></li>
-          </ul>
-        </div>
-
-        <div class="menu-section">
-          <span class="section-title">General Access</span>
-          <ul>
-            <li><a href="#">Files</a></li>
-            <li><a href="#">Folders</a></li>
+            <li><a href="{% url 'files:folders_list' %}">All Folders</a></li>
           </ul>
         </div>
       </div>
@@ -62,7 +54,9 @@
                           <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form.as_p }}
-                            <button type="submit" class="login-btn">Upload</button>
+                              <div class="start-btn">
+                            <button type="submit" class="start-btn">Upload</button>
+                                  </div>
                           </form>
                       </div>
 

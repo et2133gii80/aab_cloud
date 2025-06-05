@@ -34,7 +34,7 @@
                 <span class="section-title">Category Files</span>
                 <ul>
                     <li><a href="{% url 'files:files_list' %}">All Files</a></li>
-                    <li><a href="#">Recent</a></li>
+                    <li><a href="{% url 'files:recent_files_and_folders' %}">Recent</a></li>
                     <li><a href="{% url 'files:files_by_favourites' %}">Favourites</a></li>
                 </ul>
             </div>
@@ -61,6 +61,7 @@
             {% if folders.owner == request.user or user.is_superuser  %}
             <div class="upload_file">
                 <a href="{% url 'files:files_by_folders' folders.id %}" >{{folders.folders_name}}</a>
+                <a href="{% url 'files:folders_delete' folders.pk %}" >DELETE</a>
                 <!--            <a href="{{folders.folders_name.url}}" >{{folders.folders_name}}</a>-->
             </div>
             {% endif %}
